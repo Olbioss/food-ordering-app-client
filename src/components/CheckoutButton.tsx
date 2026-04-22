@@ -1,12 +1,12 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { useLocation } from "react-router-dom";
-import { Button } from "./ui/button";
-import LoadingButton from "./ui/LoadingButton";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { useGetUser } from "@/api/UserApi";
 import UserProfileForm, {
   UserFormData,
 } from "@/forms/user-profile-form/UserProfileForm";
-import { useGetUser } from "@/api/UserApi";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useLocation } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import LoadingButton from "./ui/LoadingButton";
 
 type Props = {
   onCheckout: (userFormData: UserFormData) => void;
@@ -48,7 +48,9 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-orange-500 flex-1"> Go to checkout</Button>
+        <Button disabled={disabled} className="bg-orange-500 flex-1">
+          Go to checkout
+        </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
         <UserProfileForm

@@ -19,7 +19,7 @@ type Props = {
   onSubmit: (formData: SearchForm) => void;
   placeholder: string;
   onReset?: () => void;
-  searchQuery: string;
+  searchQuery?: string;
   onHome?: boolean;
 };
 
