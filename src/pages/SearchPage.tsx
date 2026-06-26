@@ -67,7 +67,7 @@ const SearchPage = () => {
     }));
   };
 
-  if (isLoading) <span>Loading...</span>;
+  if (isLoading) return <span>Loading...</span>;
   if (!results?.data || !city) return <span>No results found</span>;
 
   return (
