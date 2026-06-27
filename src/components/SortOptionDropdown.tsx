@@ -13,8 +13,8 @@ type Props = {
 
 const SORT_OPTIONS = [
   {
-    label: "Best match",
-    value: "bestMatch",
+    label: "Top rated",
+    value: "rating",
   },
   {
     label: "Delivery price",

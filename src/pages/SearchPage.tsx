@@ -21,7 +21,7 @@ const SearchPage = () => {
     searchQuery: "",
     page: 1,
     selectedCuisines: [],
-    sortOption: "bestMatch",
+    sortOption: "rating",
   });
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false);

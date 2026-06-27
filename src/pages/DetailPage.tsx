@@ -1,13 +1,25 @@
 import { useCreateCheckoutSession } from "@/api/OrderApi";
 import { useGetRestaurant } from "@/api/RestaurantApi";
+import { useGetRestaurant as useGetMyRestaurant } from "@/api/MyRestaurantApi";
+import {
+  useCreateReview,
+  useGetMyReviewStatus,
+  useGetRestaurantReviews,
+  useReplyToReview,
+} from "@/api/ReviewApi";
 import CheckoutButton from "@/components/CheckoutButton";
 import MenuItemComponent from "@/components/MenuItem";
 import OrderSummary from "@/components/OrderSummary";
 import RestaurantInfo from "@/components/RestaurantInfo";
+import ReviewForm from "@/components/ReviewForm";
+import ReviewList from "@/components/ReviewList";
+import StarRating from "@/components/StarRating";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardFooter } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { MenuItem } from "@/types";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -20,8 +32,20 @@ export type CartItem = {
 
 const DetailPage = () => {
   const { restaurantId } = useParams();
+  const { isAuthenticated } = useAuth0();
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
   const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
+
+  const { reviews } = useGetRestaurantReviews(restaurantId);
+  const { reviewStatus } = useGetMyReviewStatus(restaurantId);
+  const { createReview, isLoading: isSubmittingReview } =
+    useCreateReview(restaurantId);
+  const { replyToReview, isLoading: isReplying } =
+    useReplyToReview(restaurantId);
+  const { restaurant: myRestaurant } = useGetMyRestaurant();
+
+  const isOwner =
+    isAuthenticated && !!myRestaurant && myRestaurant._id === restaurantId;
 
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
@@ -128,6 +152,43 @@ const DetailPage = () => {
               addToCart={() => addToCart(menuItem)}
             />
           ))}
+
+          <Separator />
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-bold tracking-tight">Reviews</span>
+              {!!restaurant.reviewCount && (
+                <div className="flex items-center gap-2">
+                  <StarRating rating={Math.round(restaurant.avgRating ?? 0)} />
+                  <span className="text-gray-600">
+                    {(restaurant.avgRating ?? 0).toFixed(1)} (
+                    {restaurant.reviewCount})
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {isAuthenticated &&
+              reviewStatus?.canReview &&
+              !reviewStatus?.hasReviewed && (
+                <ReviewForm
+                  onSubmit={(data) => createReview(data)}
+                  isLoading={isSubmittingReview}
+                />
+              )}
+            {isAuthenticated && reviewStatus?.hasReviewed && (
+              <p className="text-sm text-gray-500">
+                You've reviewed this restaurant. Thanks!
+              </p>
+            )}
+
+            <ReviewList
+              reviews={reviews ?? []}
+              isOwner={isOwner}
+              onReply={(reviewId, text) => replyToReview({ reviewId, text })}
+              isReplying={isReplying}
+            />
+          </div>
         </div>
 
         <div>

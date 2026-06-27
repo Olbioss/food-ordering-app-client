@@ -25,6 +25,29 @@ export type Restaurant = {
   menuItems: MenuItem[];
   imageUrl: string;
   lastUpdated: string;
+  avgRating?: number;
+  reviewCount?: number;
+};
+
+export type Review = {
+  _id: string;
+  restaurant: string;
+  user: {
+    _id: string;
+    name: string;
+  };
+  rating: number;
+  comment?: string;
+  ownerReply?: {
+    text: string;
+    repliedAt: string;
+  };
+  createdAt: string;
+};
+
+export type ReviewStatus = {
+  canReview: boolean;
+  hasReviewed: boolean;
 };
 
 export type OrderStatus =
