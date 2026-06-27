@@ -7,11 +7,11 @@ const OrderStatusPage = () => {
   const { isLoading, orders } = useGetMyOrders();
 
   if (isLoading) {
-    return "Loading...";
+    return "Yükleniyor...";
   }
 
   if (!orders || orders.length === 0) {
-    return "No orders found";
+    return "Sipariş bulunamadı";
   }
 
   return (

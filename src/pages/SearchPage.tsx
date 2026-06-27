@@ -67,8 +67,8 @@ const SearchPage = () => {
     }));
   };
 
-  if (isLoading) return <span>Loading...</span>;
-  if (!results?.data || !city) return <span>No results found</span>;
+  if (isLoading) return <span>Yükleniyor...</span>;
+  if (!results?.data || !city) return <span>Sonuç bulunamadı</span>;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
@@ -84,7 +84,7 @@ const SearchPage = () => {
         <SearchBar
           searchQuery={searchState.searchQuery}
           onSubmit={setSearchQuery}
-          placeholder="Search by Cuisine or Restaurant Name"
+          placeholder="Mutfak veya restoran adına göre arayın"
           onReset={resetSearch}
         />
         <div className="flex justify-between flex-col gap-3 lg:flex-row">

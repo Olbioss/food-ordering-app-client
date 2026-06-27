@@ -14,9 +14,9 @@ const MenuSection = () => {
   return (
     <div className="space-y-2">
       <div>
-        <h2 className="text-2xl font-bold">Menu</h2>
+        <h2 className="text-2xl font-bold">Menü</h2>
         <FormDescription>
-          Create your menu and give each item a name and a price
+          Menünüzü oluşturun ve her ürüne bir ad ve fiyat verin
         </FormDescription>
       </div>
       <FormField
@@ -34,7 +34,7 @@ const MenuSection = () => {
         )}
       />
       <Button type="button" onClick={() => append({ name: "", price: "" })}>
-        Add Menu Item
+        Menü Öğesi Ekle
       </Button>
     </div>
   );

@@ -71,7 +71,7 @@ export const useCreateReview = (restaurantId?: string) => {
     );
     if (!response.ok) {
       const error = await response.json().catch(() => null);
-      throw new Error(error?.message || "Failed to submit review");
+      throw new Error(error?.message || "Yorum gönderilemedi");
     }
     return response.json();
   };
@@ -80,7 +80,7 @@ export const useCreateReview = (restaurantId?: string) => {
     createReviewRequest,
     {
       onSuccess: () => {
-        toast.success("Review submitted");
+        toast.success("Yorumunuz gönderildi");
         queryClient.invalidateQueries(["fetchReviews", restaurantId]);
         queryClient.invalidateQueries(["fetchReviewStatus", restaurantId]);
         queryClient.invalidateQueries("fetchRestaurant");
@@ -118,14 +118,14 @@ export const useReplyToReview = (restaurantId?: string) => {
     );
     if (!response.ok) {
       const error = await response.json().catch(() => null);
-      throw new Error(error?.message || "Failed to submit reply");
+      throw new Error(error?.message || "Yanıt gönderilemedi");
     }
     return response.json();
   };
 
   const { mutateAsync: replyToReview, isLoading } = useMutation(replyRequest, {
     onSuccess: () => {
-      toast.success("Reply posted");
+      toast.success("Yanıt gönderildi");
       queryClient.invalidateQueries(["fetchReviews", restaurantId]);
     },
     onError: (error: Error) => {

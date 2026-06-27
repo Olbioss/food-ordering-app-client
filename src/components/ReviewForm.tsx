@@ -23,12 +23,12 @@ const ReviewForm = ({ onSubmit, isLoading }: Props) => {
       onSubmit={handleSubmit}
       className="flex flex-col gap-3 bg-gray-50 rounded-lg p-4"
     >
-      <span className="font-semibold">Leave a review</span>
+      <span className="font-semibold">Yorum yapın</span>
       <StarRating rating={rating} onChange={setRating} size={28} />
       <textarea
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        placeholder="Tell others about your experience (optional)"
+        placeholder="Deneyiminizi paylaşın (isteğe bağlı)"
         maxLength={1000}
         rows={3}
         className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
@@ -37,7 +37,7 @@ const ReviewForm = ({ onSubmit, isLoading }: Props) => {
         <LoadingButton />
       ) : (
         <Button type="submit" disabled={rating < 1} className="self-start">
-          Submit review
+          Yorumu gönder
         </Button>
       )}
     </form>

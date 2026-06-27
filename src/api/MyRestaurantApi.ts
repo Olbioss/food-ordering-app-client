@@ -57,8 +57,8 @@ export const useCreateRestaurant = () => {
     error,
   } = useMutation(createRestaurantRequest);
 
-  if (isSuccess) toast.success("Restaurant created!");
-  if (error) toast.error("Unable to update restaurant!");
+  if (isSuccess) toast.success("Restoran oluşturuldu!");
+  if (error) toast.error("Restoran güncellenemedi!");
 
   return { createRestaurant, isLoading };
 };
@@ -91,9 +91,9 @@ export const useUpdateRestaurant = () => {
     isSuccess,
   } = useMutation(updateRestaurantRequest);
 
-  if (isSuccess) toast.success("Restaurant Updated");
+  if (isSuccess) toast.success("Restoran güncellendi");
 
-  if (error) toast.error("Unable to update restaurant");
+  if (error) toast.error("Restoran güncellenemedi");
 
   return { updateRestaurant, isLoading };
 };
@@ -167,11 +167,11 @@ export const useUpdateMyRestaurantOrder = () => {
   } = useMutation(updateMyRestaurantOrder);
 
   if (isSuccess) {
-    toast.success("Order updated");
+    toast.success("Sipariş güncellendi");
   }
 
   if (isError) {
-    toast.error("Unable to update order");
+    toast.error("Sipariş güncellenemedi");
     reset();
   }
 

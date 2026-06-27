@@ -7,13 +7,13 @@ type OrderStatusInfo = {
 };
 
 export const ORDER_STATUS: OrderStatusInfo[] = [
-  { label: "Placed", value: "placed", progressValue: 0 },
+  { label: "Alındı", value: "placed", progressValue: 0 },
   {
-    label: "Awaiting Restaurant Confirmation",
+    label: "Restoran Onayı Bekleniyor",
     value: "paid",
     progressValue: 25,
   },
-  { label: "In Progress", value: "inProgress", progressValue: 50 },
-  { label: "Out for Delivery", value: "outForDelivery", progressValue: 75 },
-  { label: "Delivered", value: "delivered", progressValue: 100 },
+  { label: "Hazırlanıyor", value: "inProgress", progressValue: 50 },
+  { label: "Yola Çıktı", value: "outForDelivery", progressValue: 75 },
+  { label: "Teslim Edildi", value: "delivered", progressValue: 100 },
 ];

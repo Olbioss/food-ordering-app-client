@@ -22,14 +22,16 @@ const ManageRestaurantPage = () => {
   return (
     <Tabs defaultValue="orders">
       <TabsList>
-        <TabsTrigger value="orders">Orders</TabsTrigger>
-        <TabsTrigger value="manage-retaurant">Manage Restaurant</TabsTrigger>
+        <TabsTrigger value="orders">Siparişler</TabsTrigger>
+        <TabsTrigger value="manage-retaurant">Restoranı Yönet</TabsTrigger>
       </TabsList>
       <TabsContent
         value="orders"
         className="space-y-5 bg-gray-50 p-10 rounded-lg"
       >
-        <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
+        <h2 className="text-2xl font-bold">
+          {orders?.length} aktif sipariş
+        </h2>
         {orders?.map((order) => <OrderItemCard order={order} />)}
       </TabsContent>
       <TabsContent value="manage-retaurant">

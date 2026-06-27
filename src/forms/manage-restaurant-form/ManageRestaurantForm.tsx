@@ -15,36 +15,38 @@ import MenuSection from "./MenuSection";
 const formSchema = z
   .object({
     restaurantName: z.string({
-      required_error: "restuarant name is required",
+      required_error: "Restoran adı gereklidir",
     }),
     city: z.string({
-      required_error: "city is required",
+      required_error: "Şehir gereklidir",
     }),
     country: z.string({
-      required_error: "country is required",
+      required_error: "Ülke gereklidir",
     }),
     deliveryPrice: z.coerce.number({
-      required_error: "delivery price is required",
-      invalid_type_error: "must be a valid number",
+      required_error: "Teslimat ücreti gereklidir",
+      invalid_type_error: "Geçerli bir sayı olmalıdır",
     }),
     estimatedDeliveryTime: z.coerce.number({
-      required_error: "estimated delivery time is required",
-      invalid_type_error: "must be a valid number",
+      required_error: "Tahmini teslimat süresi gereklidir",
+      invalid_type_error: "Geçerli bir sayı olmalıdır",
     }),
     cuisines: z.array(z.string()).nonempty({
-      message: "please select at least one item",
+      message: "Lütfen en az bir seçenek seçin",
     }),
     menuItems: z.array(
       z.object({
-        name: z.string().min(1, "name is required"),
-        price: z.coerce.number().min(1, "price is required"),
+        name: z.string().min(1, "Ad gereklidir"),
+        price: z.coerce.number().min(1, "Fiyat gereklidir"),
       }),
     ),
     imageUrl: z.string().optional(),
-    imageFile: z.instanceof(File, { message: "image is required" }).optional(),
+    imageFile: z
+      .instanceof(File, { message: "Görsel gereklidir" })
+      .optional(),
   })
   .refine((data) => data.imageUrl || data.imageFile, {
-    message: "Either image URL or image File must be provided",
+    message: "Görsel URL'si veya görsel dosyası sağlanmalıdır",
     path: ["imageFile"],
   });
 
@@ -132,7 +134,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
         <MenuSection />
         <Separator />
         <ImageSection />
-        {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
+        {isLoading ? <LoadingButton /> : <Button type="submit">Gönder</Button>}
       </form>
     </Form>
   );

@@ -2,6 +2,23 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";
+// Fonts self-hosted via Fontsource (latin + latin-ext for Turkish glyphs).
+// Body: Plus Jakarta Sans
+import "@fontsource/plus-jakarta-sans/latin-400.css";
+import "@fontsource/plus-jakarta-sans/latin-500.css";
+import "@fontsource/plus-jakarta-sans/latin-600.css";
+import "@fontsource/plus-jakarta-sans/latin-700.css";
+import "@fontsource/plus-jakarta-sans/latin-ext-400.css";
+import "@fontsource/plus-jakarta-sans/latin-ext-500.css";
+import "@fontsource/plus-jakarta-sans/latin-ext-600.css";
+import "@fontsource/plus-jakarta-sans/latin-ext-700.css";
+// Headings: Fraunces (display serif)
+import "@fontsource/fraunces/latin-500.css";
+import "@fontsource/fraunces/latin-600.css";
+import "@fontsource/fraunces/latin-700.css";
+import "@fontsource/fraunces/latin-ext-500.css";
+import "@fontsource/fraunces/latin-ext-600.css";
+import "@fontsource/fraunces/latin-ext-700.css";
 import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "sonner";

@@ -13,15 +13,15 @@ type Props = {
 
 const SORT_OPTIONS = [
   {
-    label: "Top rated",
+    label: "En yüksek puan",
     value: "rating",
   },
   {
-    label: "Delivery price",
+    label: "Teslimat ücreti",
     value: "deliveryPrice",
   },
   {
-    label: "Estimated delivery time",
+    label: "Tahmini teslimat süresi",
     value: "estimatedDeliveryTime",
   },
 ];
@@ -35,7 +35,7 @@ const SortOptionDropdown = ({ onChange, sortOption }: Props) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer">
         <Button variant="outline" className="w-full">
-          Sort by: {selectedSortLabel}
+          Sırala: {selectedSortLabel}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>

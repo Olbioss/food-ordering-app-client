@@ -35,7 +35,7 @@ const ReviewItem = ({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="font-semibold">{review.user?.name ?? "Diner"}</span>
+        <span className="font-semibold">{review.user?.name ?? "Müşteri"}</span>
         <span className="text-sm text-gray-500">
           {new Date(review.createdAt).toLocaleDateString()}
         </span>
@@ -46,7 +46,7 @@ const ReviewItem = ({
       {review.ownerReply?.text && (
         <div className="ml-4 mt-1 border-l-2 border-orange-200 pl-3">
           <span className="text-sm font-semibold text-orange-600">
-            Owner response
+            İşletme yanıtı
           </span>
           <p className="text-sm text-gray-700">{review.ownerReply.text}</p>
         </div>
@@ -59,7 +59,7 @@ const ReviewItem = ({
               <textarea
                 value={replyText}
                 onChange={(e) => setReplyText(e.target.value)}
-                placeholder="Write a public reply"
+                placeholder="Herkese açık bir yanıt yazın"
                 maxLength={1000}
                 rows={2}
                 className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
@@ -70,14 +70,14 @@ const ReviewItem = ({
                   onClick={submitReply}
                   disabled={isReplying || !replyText.trim()}
                 >
-                  Post reply
+                  Yanıtı gönder
                 </Button>
                 <Button
                   size="sm"
                   variant="ghost"
                   onClick={() => setShowReply(false)}
                 >
-                  Cancel
+                  İptal
                 </Button>
               </div>
             </div>
@@ -87,7 +87,7 @@ const ReviewItem = ({
               variant="outline"
               onClick={() => setShowReply(true)}
             >
-              Reply
+              Yanıtla
             </Button>
           )}
         </div>
@@ -98,7 +98,7 @@ const ReviewItem = ({
 
 const ReviewList = ({ reviews, isOwner, onReply, isReplying }: Props) => {
   if (reviews.length === 0) {
-    return <p className="text-gray-500">No reviews yet.</p>;
+    return <p className="text-gray-500">Henüz yorum yok.</p>;
   }
 
   return (

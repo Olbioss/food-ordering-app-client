@@ -131,7 +131,7 @@ const DetailPage = () => {
   };
 
   if (isLoading || !restaurant) {
-    return "Loading...";
+    return "Yükleniyor...";
   }
 
   return (
@@ -145,7 +145,9 @@ const DetailPage = () => {
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32 mx-5 md:mx-0">
         <div className="flex flex-col gap-4">
           <RestaurantInfo restaurant={restaurant} />
-          <span className="text-2xl font-bold tracking-tight">Menu</span>
+          <span className="text-2xl font-bold tracking-tight font-heading">
+            Menü
+          </span>
           {restaurant.menuItems.map((menuItem) => (
             <MenuItemComponent
               menuItem={menuItem}
@@ -156,7 +158,9 @@ const DetailPage = () => {
           <Separator />
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl font-bold tracking-tight">Reviews</span>
+              <span className="text-2xl font-bold tracking-tight font-heading">
+                Yorumlar
+              </span>
               {!!restaurant.reviewCount && (
                 <div className="flex items-center gap-2">
                   <StarRating rating={Math.round(restaurant.avgRating ?? 0)} />
@@ -178,7 +182,7 @@ const DetailPage = () => {
               )}
             {isAuthenticated && reviewStatus?.hasReviewed && (
               <p className="text-sm text-gray-500">
-                You've reviewed this restaurant. Thanks!
+                Bu restoranı değerlendirdiniz. Teşekkürler!
               </p>
             )}
 

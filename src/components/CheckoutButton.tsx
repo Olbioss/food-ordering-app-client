@@ -36,7 +36,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   if (!isAuthenticated) {
     return (
       <Button className="border-orange-500 flex-1" onClick={onLogin}>
-        Log in to check out
+        Ödeme için giriş yapın
       </Button>
     );
   }
@@ -49,7 +49,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
     <Dialog>
       <DialogTrigger asChild>
         <Button disabled={disabled} className="bg-orange-500 flex-1">
-          Go to checkout
+          Ödemeye geç
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
@@ -57,8 +57,8 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
           currentUser={currentUser}
           onSave={onCheckout}
           isLoading={isGetUserLoading}
-          title="Confirm Delivery Details"
-          buttonText="Continue to payment"
+          title="Teslimat Bilgilerini Onaylayın"
+          buttonText="Ödemeye devam et"
         />
       </DialogContent>
     </Dialog>

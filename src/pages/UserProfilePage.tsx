@@ -5,9 +5,9 @@ const UserProfilePage = () => {
   const { currentUser, isLoading: isGetLoading } = useGetUser();
   const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
 
-  if (isGetLoading) return <span>Loading...</span>;
+  if (isGetLoading) return <span>Yükleniyor...</span>;
 
-  if (!currentUser) return <span>Unable to load user profile</span>;
+  if (!currentUser) return <span>Kullanıcı profili yüklenemedi</span>;
 
   return (
     <UserProfileForm

@@ -16,10 +16,10 @@ const ImageSection = () => {
   return (
     <div className="space-y-2">
       <div>
-        <h2 className="text-2xl font-bold">Image</h2>
+        <h2 className="text-2xl font-bold">Görsel</h2>
         <FormDescription>
-          Add an image that will be displayed on your restaurant listing in the
-          search results. Adding a new image will overwrite the existing one.
+          Arama sonuçlarında restoran listenizde görüntülenecek bir görsel
+          ekleyin. Yeni bir görsel eklemek mevcut olanın üzerine yazar.
         </FormDescription>
       </div>
 

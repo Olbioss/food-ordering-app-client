@@ -82,10 +82,10 @@ const SearchBar = ({
           variant="outline"
           className="rounded-full"
         >
-          Clear
+          Temizle
         </Button>
         <Button type="submit" className="rounded-full bg-orange-500">
-          Search
+          Ara
         </Button>
       </form>
     </Form>

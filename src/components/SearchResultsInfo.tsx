@@ -9,12 +9,12 @@ const SearchResultsInfo = ({ total, city }: Props) => {
   return (
     <div className="text-xl font-bold flex flex-col gap-3 justify-between lg:items-center lg:flex-row">
       <span>
-        {total} Restaurants found in {city}
+        {city} şehrinde {total} restoran bulundu
         <Link
           to="/"
           className="ml-1 text-sm font-semibold underline cursor-pointer text-blue-500"
         >
-          Change Location
+          Konumu Değiştir
         </Link>
       </span>
     </div>

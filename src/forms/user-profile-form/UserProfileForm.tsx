@@ -18,10 +18,10 @@ import { useEffect } from "react";
 
 const formSchema = z.object({
   email: z.string().optional(),
-  name: z.string().min(1, "name is required"),
-  addressLine1: z.string().min(1, "Address Line 1 is required"),
-  city: z.string().min(1, "City is required"),
-  country: z.string().min(1, "Country is required"),
+  name: z.string().min(1, "Ad gereklidir"),
+  addressLine1: z.string().min(1, "Adres Satırı 1 gereklidir"),
+  city: z.string().min(1, "Şehir gereklidir"),
+  country: z.string().min(1, "Ülke gereklidir"),
 });
 
 export type UserFormData = z.infer<typeof formSchema>;
@@ -38,8 +38,8 @@ const UserProfileForm = ({
   onSave,
   isLoading,
   currentUser,
-  title = "User Profile",
-  buttonText = "Submit",
+  title = "Kullanıcı Profili",
+  buttonText = "Gönder",
 }: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
@@ -59,7 +59,7 @@ const UserProfileForm = ({
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
           <FormDescription>
-            View and change your profile information here
+            Profil bilgilerinizi buradan görüntüleyin ve değiştirin
           </FormDescription>
         </div>
         <FormField
@@ -67,7 +67,7 @@ const UserProfileForm = ({
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>E-posta</FormLabel>
               <FormControl>
                 <Input {...field} disabled className="bg-white" />
               </FormControl>
@@ -79,7 +79,7 @@ const UserProfileForm = ({
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Ad</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
@@ -94,7 +94,7 @@ const UserProfileForm = ({
             name="addressLine1"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Address Line 1</FormLabel>
+                <FormLabel>Adres Satırı 1</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -107,7 +107,7 @@ const UserProfileForm = ({
             name="city"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>City</FormLabel>
+                <FormLabel>Şehir</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -120,7 +120,7 @@ const UserProfileForm = ({
             name="country"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Country</FormLabel>
+                <FormLabel>Ülke</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>

@@ -1,4 +1,5 @@
 import { Order } from "@/types";
+import { formatCurrency } from "@/lib/utils";
 import { Separator } from "./ui/separator";
 
 type Props = {
@@ -9,14 +10,14 @@ const OrderStatusDetail = ({ order }: Props) => {
   return (
     <div className="space-y-5">
       <div className="flex flex-col">
-        <span className="font-bold">Delivering to:</span>
+        <span className="font-bold">Teslim edilecek:</span>
         <span>{order.deliveryDetails.name}</span>
         <span>
           {order.deliveryDetails.addressLine1}, {order.deliveryDetails.city}
         </span>
       </div>
       <div className="flex flex-col">
-        <span className="font-bold">Your Order</span>
+        <span className="font-bold">Siparişiniz</span>
         <ul>
           {order.cartItems.map((item) => (
             <li>
@@ -27,8 +28,8 @@ const OrderStatusDetail = ({ order }: Props) => {
       </div>
       <Separator />
       <div className="flex flex-col">
-        <span className="font-bold">Total</span>
-        <span>${(order.totalAmount / 100).toFixed(2)}</span>
+        <span className="font-bold">Toplam</span>
+        <span>{formatCurrency(order.totalAmount)}</span>
       </div>
     </div>
   );

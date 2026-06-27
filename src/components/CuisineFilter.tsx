@@ -33,12 +33,12 @@ const CuisineFilter = ({
   return (
     <>
       <div className="flex justify-between items-center px-2">
-        <div className="text-md font-semibold mb-2">Filter By Cuisine</div>
+        <div className="text-md font-semibold mb-2">Mutfağa Göre Filtrele</div>
         <div
           onClick={handleCuisinesReset}
           className="text-sm font-semibold mb-2 underline cursor-pointer text-blue-500"
         >
-          Reset Filters
+          Filtreleri Sıfırla
         </div>
       </div>
       <div className="space-y-2 flex flex-col">
@@ -77,11 +77,11 @@ const CuisineFilter = ({
         >
           {isExpanded ? (
             <span className="flex flex-row items-center">
-              View Less <ChevronUp />
+              Daha Az Göster <ChevronUp />
             </span>
           ) : (
             <span className="flex flex-row items-center">
-              View More
+              Daha Fazla Göster
               <ChevronDown />
             </span>
           )}

@@ -110,7 +110,7 @@ export const useUpdateMyUser = () => {
     reset,
   } = useMutation(updateMyUserRequest);
 
-  if (isSuccess) toast.success("User profile updated");
+  if (isSuccess) toast.success("Kullanıcı profili güncellendi");
 
   if (error) {
     toast.error(error.toString());

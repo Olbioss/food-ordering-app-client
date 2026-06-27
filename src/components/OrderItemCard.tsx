@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "./ui/select";
 import { ORDER_STATUS } from "@/config/order.status.config";
+import { formatCurrency } from "@/lib/utils";
 import { useUpdateMyRestaurantOrder } from "@/api/MyRestaurantApi";
 import { useEffect, useState } from "react";
 
@@ -49,25 +50,25 @@ const OrderItemCard = ({ order }: Props) => {
       <CardHeader>
         <CardTitle className="grid md:grid-cols-4 gap-4 justify-between mb-3">
           <div>
-            Customer Name:
+            Müşteri Adı:
             <span className="ml-2 font-normal">
               {order.deliveryDetails.name}
             </span>
           </div>
           <div>
-            Delivery address:
+            Teslimat adresi:
             <span className="ml-2 font-normal">
               {order.deliveryDetails.addressLine1}, {order.deliveryDetails.city}
             </span>
           </div>
           <div>
-            Time:
+            Saat:
             <span className="ml-2 font-normal">{getTime()}</span>
           </div>
           <div>
-            Total Cost:
+            Toplam Tutar:
             <span className="ml-2 font-normal">
-              ${(order.totalAmount / 100).toFixed(2)}
+              {formatCurrency(order.totalAmount)}
             </span>
           </div>
         </CardTitle>
@@ -85,14 +86,14 @@ const OrderItemCard = ({ order }: Props) => {
           ))}
         </div>
         <div className="flex flex-col space-y-1.5">
-          <Label htmlFor="status">What is the status of this order?</Label>
+          <Label htmlFor="status">Bu siparişin durumu nedir?</Label>
           <Select
             value={status}
             disabled={isLoading}
             onValueChange={(value) => handleStatusChange(value as OrderStatus)}
           >
             <SelectTrigger id="status">
-              <SelectValue placeholder="Status" />
+              <SelectValue placeholder="Durum" />
             </SelectTrigger>
             <SelectContent position="popper">
               {ORDER_STATUS.map((status) => (
