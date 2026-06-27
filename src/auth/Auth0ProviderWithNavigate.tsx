@@ -28,6 +28,7 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
       authorizationParams={{
         redirect_uri: redirectUri,
         audience,
+        ui_locales: "tr",
       }}
       onRedirectCallback={onRedirectCallback}
     >
