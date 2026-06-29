@@ -52,41 +52,48 @@ const SearchBar = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 ${
-          onHome && "mx-5 "
+        className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 border-2 rounded-2xl sm:rounded-full p-2 sm:p-3 transition-shadow ${
+          onHome && "shadow-sm"
         } ${form.formState.errors.searchQuery && "border-red-500"}`}
       >
-        <Search
-          strokeWidth={2.5}
-          size={30}
-          className="ml-1 text-orange-500 hidden md:block"
-        />
-        <FormField
-          control={form.control}
-          name="searchQuery"
-          render={({ field }) => (
-            <FormItem className="flex-1">
-              <FormControl>
-                <Input
-                  {...field}
-                  className="border-none shadow-none text-xl focus-visible:ring-0"
-                  placeholder={placeholder}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <Button
-          onClick={handleReset}
-          type="button"
-          variant="outline"
-          className="rounded-full"
-        >
-          Temizle
-        </Button>
-        <Button type="submit" className="rounded-full bg-orange-500">
-          Ara
-        </Button>
+        <div className="flex flex-1 items-center gap-2">
+          <Search
+            strokeWidth={2.5}
+            size={26}
+            className="ml-2 shrink-0 text-orange-500"
+          />
+          <FormField
+            control={form.control}
+            name="searchQuery"
+            render={({ field }) => (
+              <FormItem className="flex-1">
+                <FormControl>
+                  <Input
+                    {...field}
+                    className="border-none shadow-none text-lg sm:text-xl focus-visible:ring-0"
+                    placeholder={placeholder}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className="flex gap-2">
+          <Button
+            onClick={handleReset}
+            type="button"
+            variant="outline"
+            className="flex-1 sm:flex-none rounded-full"
+          >
+            Temizle
+          </Button>
+          <Button
+            type="submit"
+            className="flex-1 sm:flex-none rounded-full bg-orange-500 hover:bg-orange-600"
+          >
+            Ara
+          </Button>
+        </div>
       </form>
     </Form>
   );

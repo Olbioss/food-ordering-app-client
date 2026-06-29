@@ -14,7 +14,6 @@ import RestaurantInfo from "@/components/RestaurantInfo";
 import ReviewForm from "@/components/ReviewForm";
 import ReviewList from "@/components/ReviewList";
 import StarRating from "@/components/StarRating";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardFooter } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
@@ -135,14 +134,12 @@ const DetailPage = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10 mx-4 md:mx-4">
-      <AspectRatio ratio={16 / 5}>
-        <img
-          src={restaurant.imageUrl}
-          className="rounded-md object-cover h-full w-full"
-        />
-      </AspectRatio>
-      <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32 mx-5 md:mx-0">
+    <div className="flex flex-col gap-8 md:gap-10">
+      <img
+        src={restaurant.imageUrl}
+        className="rounded-2xl object-cover w-full h-48 sm:h-64 md:h-80"
+      />
+      <div className="grid md:grid-cols-[4fr_2fr] gap-5 lg:px-16 xl:px-32">
         <div className="flex flex-col gap-4">
           <RestaurantInfo restaurant={restaurant} />
           <span className="text-2xl font-bold tracking-tight font-heading">
@@ -195,7 +192,7 @@ const DetailPage = () => {
           </div>
         </div>
 
-        <div>
+        <div className="md:sticky md:top-6 h-fit">
           <Card>
             <OrderSummary
               restaurant={restaurant}

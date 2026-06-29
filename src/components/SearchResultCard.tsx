@@ -13,16 +13,16 @@ const SearchResultCard = ({ restaurant }: Props) => {
   return (
     <Link
       to={`/detail/${restaurant._id}`}
-      className="grid lg:grid-cols-[2fr_3fr] gap-5 group"
+      className="grid lg:grid-cols-[2fr_3fr] gap-4 sm:gap-5 group rounded-2xl border bg-white p-3 sm:p-4 transition-shadow hover:shadow-md"
     >
       <AspectRatio ratio={16 / 6}>
         <img
           src={restaurant.imageUrl}
-          className="rounded-md w-full h-full object-cover"
+          className="rounded-xl w-full h-full object-cover"
         />
       </AspectRatio>
       <div>
-        <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:underline">
+        <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-2 group-hover:text-orange-500 transition-colors">
           {restaurant.restaurantName}
         </h3>
         {!!restaurant.reviewCount && (
