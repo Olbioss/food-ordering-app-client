@@ -36,19 +36,19 @@ const ReviewItem = ({
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <span className="font-semibold">{review.user?.name ?? "Müşteri"}</span>
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-muted-foreground">
           {new Date(review.createdAt).toLocaleDateString()}
         </span>
       </div>
       <StarRating rating={review.rating} size={16} />
-      {review.comment && <p className="text-gray-700">{review.comment}</p>}
+      {review.comment && <p className="text-foreground/80">{review.comment}</p>}
 
       {review.ownerReply?.text && (
-        <div className="ml-4 mt-1 border-l-2 border-orange-200 pl-3">
-          <span className="text-sm font-semibold text-orange-600">
+        <div className="ml-4 mt-1 border-l-2 border-accent pl-3">
+          <span className="text-sm font-semibold text-primary">
             İşletme yanıtı
           </span>
-          <p className="text-sm text-gray-700">{review.ownerReply.text}</p>
+          <p className="text-sm text-foreground/80">{review.ownerReply.text}</p>
         </div>
       )}
 
@@ -62,7 +62,7 @@ const ReviewItem = ({
                 placeholder="Herkese açık bir yanıt yazın"
                 maxLength={1000}
                 rows={2}
-                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                className="w-full rounded-2xl border border-input bg-card px-4 py-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               />
               <div className="flex gap-2">
                 <Button
@@ -98,7 +98,7 @@ const ReviewItem = ({
 
 const ReviewList = ({ reviews, isOwner, onReply, isReplying }: Props) => {
   if (reviews.length === 0) {
-    return <p className="text-gray-500">Henüz yorum yok.</p>;
+    return <p className="text-muted-foreground">Henüz yorum yok.</p>;
   }
 
   return (

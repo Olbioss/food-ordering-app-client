@@ -36,15 +36,14 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
         {cartItems.map((item) => (
           <div className="flex justify-between">
             <span>
-              <Badge variant={"outline"} className="mr-2">
+              <Badge variant="secondary" className="mr-2">
                 {item.quantity}
               </Badge>
               {item.name}
             </span>
             <span className="flex items-center gap-1">
               <Trash
-                className="cursor-pointer"
-                color="red"
+                className="cursor-pointer text-destructive"
                 size={20}
                 onClick={() => removeFromCart(item)}
               />
