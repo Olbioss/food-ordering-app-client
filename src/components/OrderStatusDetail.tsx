@@ -10,14 +10,14 @@ const OrderStatusDetail = ({ order }: Props) => {
   return (
     <div className="space-y-5">
       <div className="flex flex-col">
-        <span className="font-bold">Teslim edilecek:</span>
+        <span className="font-bold font-heading">Teslim edilecek:</span>
         <span>{order.deliveryDetails.name}</span>
         <span>
           {order.deliveryDetails.addressLine1}, {order.deliveryDetails.city}
         </span>
       </div>
       <div className="flex flex-col">
-        <span className="font-bold">Siparişiniz</span>
+        <span className="font-bold font-heading">Siparişiniz</span>
         <ul>
           {order.cartItems.map((item) => (
             <li>
@@ -28,7 +28,7 @@ const OrderStatusDetail = ({ order }: Props) => {
       </div>
       <Separator />
       <div className="flex flex-col">
-        <span className="font-bold">Toplam</span>
+        <span className="font-bold font-heading">Toplam</span>
         <span>{formatCurrency(order.totalAmount)}</span>
       </div>
     </div>
