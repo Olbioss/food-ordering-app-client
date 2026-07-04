@@ -5,6 +5,7 @@ import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultsInfo from "@/components/SearchResultsInfo";
 import SortOptionDropdown from "@/components/SortOptionDropdown";
+import Spinner from "@/components/ui/Spinner";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -67,7 +68,7 @@ const SearchPage = () => {
     }));
   };
 
-  if (isLoading) return <span>Yükleniyor...</span>;
+  if (isLoading) return <Spinner />;
   if (!results?.data || !city) return <span>Sonuç bulunamadı</span>;
 
   return (
@@ -94,8 +95,14 @@ const SearchPage = () => {
             onChange={(value) => setSortOption(value)}
           />
         </div>
-        {results.data.map((restaurant) => (
-          <SearchResultCard restaurant={restaurant} />
+        {results.data.map((restaurant, index) => (
+          <div
+            key={restaurant._id}
+            className="motion-safe:animate-fade-up"
+            style={{ animationDelay: `${index * 60}ms` }}
+          >
+            <SearchResultCard restaurant={restaurant} />
+          </div>
         ))}
         <PaginationSelector
           page={results.pagination.page}

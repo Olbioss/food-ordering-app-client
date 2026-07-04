@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cuisineList } from "@/config/restaurant.options.config";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { ChangeEvent } from "react";
-import { Label } from "./ui/label";
 
 type Props = {
   onChange: (cuisines: string[]) => void;
@@ -17,77 +15,66 @@ const CuisineFilter = ({
   isExpanded,
   onExpandedClick,
 }: Props) => {
-  const handleCuisinesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const clickedCuisine = e.target.value;
-    const isChecked = e.target.checked;
-
-    const newCuisinesList = isChecked
-      ? [...selectedCuisines, clickedCuisine]
-      : selectedCuisines.filter((cuisine) => cuisine !== clickedCuisine);
-
-    onChange(newCuisinesList);
+  const handleCuisineToggle = (cuisine: string) => {
+    const isSelected = selectedCuisines.includes(cuisine);
+    onChange(
+      isSelected
+        ? selectedCuisines.filter((c) => c !== cuisine)
+        : [...selectedCuisines, cuisine]
+    );
   };
 
   const handleCuisinesReset = () => onChange([]);
 
   return (
-    <>
-      <div className="flex justify-between items-center px-2">
-        <div className="text-md font-semibold mb-2">Mutfağa Göre Filtrele</div>
-        <div
+    <div className="flex flex-col gap-3">
+      <div className="flex justify-between items-center">
+        <div className="text-md font-bold font-heading">
+          Mutfağa Göre Filtrele
+        </div>
+        <button
           onClick={handleCuisinesReset}
-          className="text-sm font-semibold mb-2 underline cursor-pointer text-blue-500"
+          className="text-sm font-semibold text-primary hover:underline"
         >
           Filtreleri Sıfırla
-        </div>
+        </button>
       </div>
-      <div className="space-y-2 flex flex-col">
+      <div className="flex flex-wrap gap-2">
         {cuisineList
           .slice(0, isExpanded ? cuisineList.length : 7)
           .map((cuisine) => {
             const isSelected = selectedCuisines.includes(cuisine);
             return (
-              <div className="flex">
-                <input
-                  id={`cuisine_${cuisine}`}
-                  type="checkbox"
-                  className="hidden"
-                  value={cuisine}
-                  checked={isSelected}
-                  onChange={handleCuisinesChange}
-                />
-                <Label
-                  htmlFor={`cuisine_${cuisine}`}
-                  className={`flex flex-1 items-center cursor-pointer text-sm rounded-full px-4 py-2 font-semibold ${
-                    isSelected
-                      ? "border border-green-600 text-green-600"
-                      : "border border-slate-300"
-                  }`}
-                >
-                  {isSelected && <Check size={20} strokeWidth={3} />}
-                  {cuisine}
-                </Label>
-              </div>
+              <button
+                key={cuisine}
+                type="button"
+                aria-pressed={isSelected}
+                onClick={() => handleCuisineToggle(cuisine)}
+                className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                  isSelected
+                    ? "bg-foreground text-background"
+                    : "bg-card shadow-warm hover:text-primary"
+                }`}
+              >
+                {isSelected && <Check size={16} strokeWidth={3} />}
+                {cuisine}
+              </button>
             );
           })}
-        <Button
-          onClick={onExpandedClick}
-          variant="link"
-          className="mt-4 flex-1"
-        >
-          {isExpanded ? (
-            <span className="flex flex-row items-center">
-              Daha Az Göster <ChevronUp />
-            </span>
-          ) : (
-            <span className="flex flex-row items-center">
-              Daha Fazla Göster
-              <ChevronDown />
-            </span>
-          )}
-        </Button>
       </div>
-    </>
+      <Button onClick={onExpandedClick} variant="link" className="mt-2 flex-1">
+        {isExpanded ? (
+          <span className="flex flex-row items-center">
+            Daha Az Göster <ChevronUp />
+          </span>
+        ) : (
+          <span className="flex flex-row items-center">
+            Daha Fazla Göster
+            <ChevronDown />
+          </span>
+        )}
+      </Button>
+    </div>
   );
 };
 
