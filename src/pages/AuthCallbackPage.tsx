@@ -1,4 +1,5 @@
 import { useCreateMyUser } from "@/api/UserApi";
+import Spinner from "@/components/ui/Spinner";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +19,11 @@ const AuthCallbackPage = () => {
     navigate("/");
   }, [createUser, navigate, user]);
 
-  return <>Yükleniyor...</>;
+  return (
+    <div className="grid min-h-screen place-items-center">
+      <Spinner />
+    </div>
+  );
 };
 
 export default AuthCallbackPage;
