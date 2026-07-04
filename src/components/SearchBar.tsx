@@ -52,15 +52,15 @@ const SearchBar = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 border-2 rounded-2xl sm:rounded-full p-2 sm:p-3 transition-shadow ${
-          onHome && "shadow-sm"
-        } ${form.formState.errors.searchQuery && "border-red-500"}`}
+        className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 rounded-3xl sm:rounded-full bg-card p-2 sm:p-3 transition-shadow ${
+          onHome ? "shadow-warm-lg" : "shadow-warm"
+        } ${form.formState.errors.searchQuery && "ring-2 ring-destructive"}`}
       >
         <div className="flex flex-1 items-center gap-2">
           <Search
             strokeWidth={2.5}
             size={26}
-            className="ml-2 shrink-0 text-orange-500"
+            className="ml-2 shrink-0 text-primary"
           />
           <FormField
             control={form.control}
@@ -70,7 +70,7 @@ const SearchBar = ({
                 <FormControl>
                   <Input
                     {...field}
-                    className="border-none shadow-none text-lg sm:text-xl focus-visible:ring-0"
+                    className="border-none bg-transparent shadow-none text-lg sm:text-xl focus-visible:ring-0"
                     placeholder={placeholder}
                   />
                 </FormControl>
@@ -82,14 +82,14 @@ const SearchBar = ({
           <Button
             onClick={handleReset}
             type="button"
-            variant="outline"
-            className="flex-1 sm:flex-none rounded-full"
+            variant="ghost"
+            className="flex-1 sm:flex-none"
           >
             Temizle
           </Button>
           <Button
             type="submit"
-            className="flex-1 sm:flex-none rounded-full bg-orange-500 hover:bg-orange-600"
+            className="flex-1 sm:flex-none"
           >
             Ara
           </Button>
