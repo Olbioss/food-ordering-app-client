@@ -28,11 +28,7 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
               Ad <FormMessage />
             </FormLabel>
             <FormControl>
-              <Input
-                {...field}
-                placeholder="Peynirli Pizza"
-                className="bg-white"
-              />
+              <Input {...field} placeholder="Peynirli Pizza" />
             </FormControl>
           </FormItem>
         )}
@@ -46,15 +42,16 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
               Fiyat <FormMessage />
             </FormLabel>
             <FormControl>
-              <Input {...field} placeholder="15.00" className="bg-white" />
+              <Input {...field} placeholder="15.00" />
             </FormControl>
           </FormItem>
         )}
       />
       <Button
         type="button"
+        variant="destructive"
         onClick={removeMenuItem}
-        className="bg-red-500 max-h-fit"
+        className="max-h-fit"
       >
         Kaldır
       </Button>

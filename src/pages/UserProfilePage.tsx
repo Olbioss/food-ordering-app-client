@@ -1,11 +1,12 @@
 import { useGetUser, useUpdateMyUser } from "@/api/UserApi";
 import UserProfileForm from "@/forms/user-profile-form/UserProfileForm";
+import Spinner from "@/components/ui/Spinner";
 
 const UserProfilePage = () => {
   const { currentUser, isLoading: isGetLoading } = useGetUser();
   const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
 
-  if (isGetLoading) return <span>Yükleniyor...</span>;
+  if (isGetLoading) return <Spinner />;
 
   if (!currentUser) return <span>Kullanıcı profili yüklenemedi</span>;
 

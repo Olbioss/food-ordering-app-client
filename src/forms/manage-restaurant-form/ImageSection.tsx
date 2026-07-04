@@ -28,7 +28,7 @@ const ImageSection = () => {
           <AspectRatio ratio={16 / 9}>
             <img
               src={existingImageUrl}
-              className="rounded-md object-cover h-full w-full"
+              className="rounded-2xl object-cover h-full w-full"
             />
           </AspectRatio>
         )}
@@ -39,7 +39,6 @@ const ImageSection = () => {
             <FormItem>
               <FormControl>
                 <Input
-                  className="bg-white"
                   type="file"
                   accept=".jpg, .jpeg, .png"
                   onChange={(event) =>
