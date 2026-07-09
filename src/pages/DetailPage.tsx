@@ -15,6 +15,7 @@ import ReviewForm from "@/components/ReviewForm";
 import ReviewList from "@/components/ReviewList";
 import StarRating from "@/components/StarRating";
 import { Card, CardFooter } from "@/components/ui/card";
+import Spinner from "@/components/ui/Spinner";
 import { Separator } from "@/components/ui/separator";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { MenuItem } from "@/types";
@@ -130,14 +131,14 @@ const DetailPage = () => {
   };
 
   if (isLoading || !restaurant) {
-    return "Yükleniyor...";
+    return <Spinner />;
   }
 
   return (
     <div className="flex flex-col gap-8 md:gap-10">
       <img
         src={restaurant.imageUrl}
-        className="rounded-2xl object-cover w-full h-48 sm:h-64 md:h-80"
+        className="rounded-[28px] shadow-warm object-cover w-full h-48 sm:h-64 md:h-80"
       />
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 lg:px-16 xl:px-32">
         <div className="flex flex-col gap-4">
@@ -161,7 +162,7 @@ const DetailPage = () => {
               {!!restaurant.reviewCount && (
                 <div className="flex items-center gap-2">
                   <StarRating rating={Math.round(restaurant.avgRating ?? 0)} />
-                  <span className="text-gray-600">
+                  <span className="text-muted-foreground">
                     {(restaurant.avgRating ?? 0).toFixed(1)} (
                     {restaurant.reviewCount})
                   </span>
@@ -178,7 +179,7 @@ const DetailPage = () => {
                 />
               )}
             {isAuthenticated && reviewStatus?.hasReviewed && (
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-foreground">
                 Bu restoranı değerlendirdiniz. Teşekkürler!
               </p>
             )}

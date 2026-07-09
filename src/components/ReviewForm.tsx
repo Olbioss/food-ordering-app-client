@@ -21,7 +21,7 @@ const ReviewForm = ({ onSubmit, isLoading }: Props) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 bg-gray-50 rounded-lg p-4"
+      className="flex flex-col gap-3 rounded-3xl bg-secondary p-5"
     >
       <span className="font-semibold">Yorum yapın</span>
       <StarRating rating={rating} onChange={setRating} size={28} />
@@ -31,7 +31,7 @@ const ReviewForm = ({ onSubmit, isLoading }: Props) => {
         placeholder="Deneyiminizi paylaşın (isteğe bağlı)"
         maxLength={1000}
         rows={3}
-        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        className="w-full rounded-2xl border border-input bg-card px-4 py-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       />
       {isLoading ? (
         <LoadingButton />

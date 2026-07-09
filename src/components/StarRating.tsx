@@ -23,8 +23,8 @@ const StarRating = ({ rating, onChange, size = 20, className }: Props) => {
           size={size}
           className={cn(
             star <= active
-              ? "fill-orange-500 text-orange-500"
-              : "fill-transparent text-gray-300",
+              ? "fill-accent text-accent"
+              : "fill-transparent text-border",
             interactive && "cursor-pointer",
           )}
           onClick={interactive ? () => onChange(star) : undefined}
