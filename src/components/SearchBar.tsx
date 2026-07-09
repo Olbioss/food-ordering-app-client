@@ -52,7 +52,7 @@ const SearchBar = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 rounded-3xl sm:rounded-full bg-card p-2 sm:p-3 transition-shadow ${
+        className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 rounded-3xl sm:rounded-full bg-card text-foreground p-2 sm:p-3 transition-shadow ${
           onHome ? "shadow-warm-lg" : "shadow-warm"
         } ${form.formState.errors.searchQuery && "ring-2 ring-destructive"}`}
       >
