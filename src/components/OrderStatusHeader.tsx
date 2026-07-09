@@ -1,5 +1,6 @@
 import { Order } from "@/types";
 import { Progress } from "./ui/progress";
+import { Badge } from "./ui/badge";
 import { ORDER_STATUS } from "@/config/order.status.config";
 
 type Props = {
@@ -30,12 +31,20 @@ const OrderStatusHeader = ({ order }: Props) => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold tracking-tighter flex flex-col gap-5 md:flex-row md:justify-between">
-        <span> Sipariş Durumu: {getOrderStatusInfo().label}</span>
-        <span> Tahmini teslimat: {getExpectedDelivery()} </span>
-      </h1>
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight font-heading">
+          Sipariş Durumu:{" "}
+          <span className="text-primary">{getOrderStatusInfo().label}</span>
+        </h1>
+        <Badge
+          variant="secondary"
+          className="self-start px-4 py-2 text-sm md:self-auto"
+        >
+          Tahmini teslimat: {getExpectedDelivery()}
+        </Badge>
+      </div>
       <Progress
-        className="animate-pulse"
+        className="motion-safe:animate-pulse"
         value={getOrderStatusInfo().progressValue}
       />
     </>

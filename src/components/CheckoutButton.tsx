@@ -35,7 +35,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
 
   if (!isAuthenticated) {
     return (
-      <Button className="border-orange-500 flex-1" onClick={onLogin}>
+      <Button className="flex-1" onClick={onLogin}>
         Ödeme için giriş yapın
       </Button>
     );
@@ -48,11 +48,11 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled={disabled} className="bg-orange-500 flex-1">
+        <Button disabled={disabled} className="flex-1">
           Ödemeye geç
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
+      <DialogContent className="max-w-[425px] md:min-w-[700px] bg-background">
         <UserProfileForm
           currentUser={currentUser}
           onSave={onCheckout}

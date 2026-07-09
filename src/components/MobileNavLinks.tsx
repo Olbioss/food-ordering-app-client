@@ -9,25 +9,25 @@ const MobileNavLinks = () => {
     <>
       <Link
         to="/order-status"
-        className="flex bg-white items-center font-bold hover:text-orange-500"
+        className="flex items-center font-bold text-foreground hover:text-primary"
       >
         Sipariş Durumu
       </Link>
       <Link
         to="/manage-restaurant"
-        className="flex bg-white items-center font-bold hover:text-orange-500"
+        className="flex items-center font-bold text-foreground hover:text-primary"
       >
         Restoranım
       </Link>
       <Link
         to="/user-profile"
-        className="flex bg-white items-center font-bold hover:text-orange-500"
+        className="flex items-center font-bold text-foreground hover:text-primary"
       >
         Kullanıcı Profili
       </Link>
       <Button
         onClick={() => logout()}
-        className="flex items-center px-3 font-bold hover:bg-gray-500"
+        className="flex items-center px-3 font-bold"
       >
         Çıkış Yap
       </Button>
