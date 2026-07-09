@@ -27,14 +27,14 @@ const ManageRestaurantPage = () => {
       </TabsList>
       <TabsContent
         value="orders"
-        className="space-y-5 bg-gray-50 p-10 rounded-lg"
+        className="space-y-5 rounded-3xl bg-card p-5 shadow-warm md:p-10 mt-4"
       >
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold font-heading">
           {orders?.length} aktif sipariş
         </h2>
         {orders?.map((order) => <OrderItemCard order={order} />)}
       </TabsContent>
-      <TabsContent value="manage-retaurant">
+      <TabsContent value="manage-retaurant" className="mt-4">
         <ManageRestaurantForm
           restaurant={restaurant}
           onSave={isEditing ? updateRestaurant : createRestaurant}
