@@ -11,12 +11,12 @@ importers:
       '@auth0/auth0-react':
         specifier: ^2.2.4
         version: 2.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@fontsource/fraunces':
-        specifier: ^5.2.9
-        version: 5.2.9
-      '@fontsource/plus-jakarta-sans':
-        specifier: ^5.2.8
-        version: 5.2.8
+      '@fontsource/baloo-2':
+        specifier: ^5.2.7
+        version: 5.2.7
+      '@fontsource/nunito-sans':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@hookform/resolvers':
         specifier: ^3.9.1
         version: 3.9.1(react-hook-form@7.54.1(react@18.3.1))
@@ -62,9 +62,6 @@ importers:
       lucide-react:
         specifier: ^0.441.0
         version: 0.441.0(react@18.3.1)
-      next-themes:
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -428,11 +425,11 @@ packages:
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
 
-  '@fontsource/fraunces@5.2.9':
-    resolution: {integrity: sha512-XDzuddBtoC7BZgZdBn6b7hsFZY2+V1hgN7yca5fBTKuHjb/lOd45a0Ji8dTUgFhPoL7RdGupo+bC2BFSt6UH8Q==}
+  '@fontsource/baloo-2@5.2.7':
+    resolution: {integrity: sha512-RllEWCvjw0PqLey6hbNI2M8gdZy2CFCIHXXNIXC4V4xsRQeOgZ3OMx3uQ1u4LjJ16BGytZD6wE/VFU9st0VdDg==}
 
-  '@fontsource/plus-jakarta-sans@5.2.8':
-    resolution: {integrity: sha512-P5qE49fqdeD+7DXH1KBxmMPlB17LTz1zvBhFH0tFzfnYTKVJVyb0pR6plh0ZGXxcB+Oayb54FZZw3V42/DawTw==}
+  '@fontsource/nunito-sans@5.2.7':
+    resolution: {integrity: sha512-Vh+xhMsrH1eA9Q83Va82su3rDmNilYg+ur/TfHAOyr5kTpCOWMB8B1tDoJvSe+yJPpZ2jEWtnBHGqI2LUPVxUA==}
 
   '@hookform/resolvers@3.9.1':
     resolution: {integrity: sha512-ud2HqmGBM0P0IABqoskKWI6PEf6ZDDBZkFqe2Vnl+mTHCEHzr3ISjjZyCwTjC/qpL25JC9aIDkloQejvMeq0ug==}
@@ -1584,12 +1581,6 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  next-themes@0.3.0:
-    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18
-      react-dom: ^16.8 || ^17 || ^18
-
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
@@ -2333,9 +2324,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@fontsource/fraunces@5.2.9': {}
+  '@fontsource/baloo-2@5.2.7': {}
 
-  '@fontsource/plus-jakarta-sans@5.2.8': {}
+  '@fontsource/nunito-sans@5.2.7': {}
 
   '@hookform/resolvers@3.9.1(react-hook-form@7.54.1(react@18.3.1))':
     dependencies:
@@ -3462,11 +3453,6 @@ snapshots:
   nanoid@3.3.8: {}
 
   natural-compare@1.4.0: {}
-
-  next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   node-releases@2.0.19: {}
 
