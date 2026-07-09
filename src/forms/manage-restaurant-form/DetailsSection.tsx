@@ -24,7 +24,7 @@ const DetailsSection = () => {
           <FormItem>
             <FormLabel>Ad</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" />
+              <Input {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -38,7 +38,7 @@ const DetailsSection = () => {
             <FormItem className="flex-1">
               <FormLabel>Şehir</FormLabel>
               <FormControl>
-                <Input {...field} className="bg-white" />
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -51,7 +51,7 @@ const DetailsSection = () => {
             <FormItem className="flex-1">
               <FormLabel>Ülke</FormLabel>
               <FormControl>
-                <Input {...field} className="bg-white" />
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -65,7 +65,7 @@ const DetailsSection = () => {
           <FormItem className="max-w-[25%]">
             <FormLabel>Teslimat Ücreti (₺)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="1.50" />
+              <Input {...field} placeholder="1.50" />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -78,7 +78,7 @@ const DetailsSection = () => {
           <FormItem className="max-w-[25%]">
             <FormLabel>Tahmini Teslimat Süresi (dakika)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="30" />
+              <Input {...field} placeholder="30" />
             </FormControl>
             <FormMessage />
           </FormItem>
